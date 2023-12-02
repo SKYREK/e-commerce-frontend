@@ -41,11 +41,11 @@ export default function Slider(){
             
             <div className="w-full h-full absolute ">
                 <div className="relative w-full h-full flex justify-center items-center arrow-holder">
-                    <div className="absolute text-white left-16  arrow-left p-3  cursor-pointer bg-primary">
+                    <div className="absolute text-white left-16  arrow-left p-3 z-[100]  cursor-pointer bg-primary">
                         <FaArrowLeft  />
                     </div>
-                    <div className="absolute text-white right-16  arrow-right p-3  cursor-pointer bg-primary">
-                        <FaArrowRight />
+                    <div className="absolute text-white right-16  arrow-right p-3 z-[100] cursor-pointer bg-primary">
+                        <FaArrowRight  />
                     </div>
                     {
                         contexts[currentSlide]
