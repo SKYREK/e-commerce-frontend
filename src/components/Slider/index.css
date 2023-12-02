@@ -1,0 +1,101 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {    
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fromAbove {
+    0%{
+        opacity: 0;
+        transform: translateY(-50%);  
+    }
+    50% {            
+        opacity: 0;  
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }   
+}
+@keyframes fromLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(-1000%);  
+    }
+    50% {            
+        opacity: 0;  
+    }
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }   
+}
+@keyframes fromRight {
+    0%{
+        opacity: 0;
+        transform: translateX(1000%);  
+    }
+    50% {            
+        opacity: 0;  
+    }
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }   
+}
+
+.activeImage {
+    animation-name: fadeIn;
+    animation-duration: 1.5s;
+    display: block;
+}
+.previousImage{
+    animation-name: fadeOut;
+    animation-duration: 1.5s;
+    opacity: 0;
+}
+.sliderText{
+    animation-name : fromAbove;
+    animation-duration: 1s;
+}
+
+
+/* Default styles for arrow-left and arrow-right */
+.arrow-left {
+    display: none;
+}
+
+.arrow-right {
+    display: none;
+}
+
+/* Media query for large devices */
+@media (min-width: 1200px) {
+    .arrow-holder:hover .arrow-left{
+        display: block;
+        animation-name: fromRight;
+        animation-duration: 0.5s;
+        color: white;
+    }
+    .arrow-holder:hover .arrow-right{
+        display: block;
+        animation-name: fromLeft;
+        animation-duration: 0.5s;
+        color: white;
+    }
+}
+
+
+

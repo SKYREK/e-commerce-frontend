@@ -2,5 +2,46 @@
     background-image: url("../../assets/images/header-background.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center;;
+}
+@keyframes expandhorizontal {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 75%;
+    }
+}
+.mobile-nav-items{
+    animation-name: expandhorizontal;
+    animation-duration: 0.5s;
+}
+
+
+
+@keyframes retracthorizontal {
+    0% {
+        width: 75%;
+    }
+    100% {
+        width: 0%;
+    }
+}
+.mobile-nav-closed{
+    animation-name: retracthorizontal;
+    animation-duration: 0.5s;
+}
+
+@keyframes movefromabove {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.animated-nav{
+    animation-name: movefromabove;
+    animation-duration: 1s;
 }
