@@ -1,0 +1,85 @@
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }    
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes moveUpFrombelow {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+
+@keyframes rotateOnY {
+    from {
+        transform: rotateY(270deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }    
+}
+@keyframes rotateOnYReverse {
+    from {
+        transform: rotateY(360deg);
+    }
+    to {
+        transform: rotateY(270deg);
+    }    
+}
+@media (min-width: 1200px) 
+{
+    .product-card:hover .large-product-overlay {
+    display: block;
+    }
+    .product-card:hover .product-base-image {
+        animation-name: fadeOut;
+        animation-duration: 1s;
+        opacity: 0;
+    }
+
+    .product-card:hover .product-base-content {     
+        opacity: 0;
+    }
+
+    .product-card:hover .product-inner-content {     
+        display: flex;
+    }
+
+
+    .product-card:hover .product-add-to-cart-button {     
+        animation-name: moveUpFrombelow;
+        animation-duration: 1s;
+    }
+
+
+    .product-card:hover .product-inner-image{
+        animation-name: rotateOnY;
+        animation-duration: 1s;
+        transform: rotateY(0deg);
+    }
+    .product-inner-image{
+        animation-name: rotateOnYReverse;
+        animation-duration: 1s;
+        transform: rotateY(270deg);
+    }
+    .product-base-image{
+        animation-name: fadeIn;
+        animation-duration : 2s;
+    }
+
+}

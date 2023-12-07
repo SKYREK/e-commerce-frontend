@@ -41,7 +41,7 @@ export default function Header() {
     <>
       {
         mobileNav&&
-        <div className={`h-[100vh]  overflow-x-hidden lg:hidden mobile-nav fixed   z-[120] w-full  top-0 ${!mobileNavClosing&&"bg-[#00000066]"} `} onClick={()=>{
+        <div className={`h-[100vh]  overflow-x-hidden lg:hidden mobile-nav fixed   z-[190] w-full  top-0 ${!mobileNavClosing&&"bg-[#00000066]"} `} onClick={()=>{
           
           setMobileNavClosing(true)
           //run once after one second
@@ -66,7 +66,7 @@ export default function Header() {
         </div>        
       }     
       <header className={`header z-[99] flex justify-center items-center flex-col `} >
-        <div className={`w-full lg:w-[1200px]  h-[60px] lg:h-[120px] flex justify-center  items-center ${mobileNavFixed?"fixed top-0 lg:relative animated-nav  bg-white":"relative"}  `}>
+        <div className={`w-full lg:w-[1200px] z-[120] h-[60px] lg:h-[120px] flex justify-center  items-center ${mobileNavFixed?"fixed top-0 lg:relative animated-nav  bg-white":"relative"}  `}>
           <img src={logo} alt="logo" className=" w-[35%] object-contain absolute" />
           <div className={`w-full relative h-full flex justify-center items-center`}>
             <FiAlignJustify className="absolute lg:hidden left-0 text-2xl lg:text-4xl text-black hover:text-primary ml-4 cursor-pointer mx-5" onClick={()=>setMobileNav(true)}/>
@@ -82,7 +82,7 @@ export default function Header() {
 
 
         </div>
-        <div className={`hidden  w-full h-[54px] lg:flex justify-center bg-primary  items-center ${navFixed?"fixed top-0 animated-nav":""}`}>
+        <div className={`hidden  w-full h-[54px] z-[400] lg:flex justify-center bg-primary  items-center ${navFixed?"fixed top-0 animated-nav":""}`}>
           <div className="w-[1200px] h-full flex  items-center">
             <ul className="flex flex-row justify-center items-center text-white text-sm lg:text-lg">
               <li className="mx-4 cursor-pointer hover:text-dark">Home</li>

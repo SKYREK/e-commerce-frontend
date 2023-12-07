@@ -1,0 +1,62 @@
+export const productList = [
+    {
+        _id : "8efb8e7f5b7a4b9e9b1a9c4b9e5b7a4b",
+        name: "Macbook pro",
+        altNames: ["Apple laptop", "Mac laptop"],
+        labeledPrice: 1000,
+        lastPrice: 900,
+        description: "A laptop made by Apple",
+        image : [
+            "https://th.bing.com/th/id/R.a161652d3bd18bc4854d4653eb607103?rik=0EdopmY4ZNC4hg&pid=ImgRaw&r=0",
+            "https://cdn.shopify.com/s/files/1/0080/5312/9313/products/me866lla-pb-rc-unit_900x.jpg?v=1602775387",
+            "https://th.bing.com/th/id/OIP.iNEnJut7-WP5BQ-dgcYTMAAAAA?w=474&h=474&rs=1&pid=ImgDetMain",
+            "https://th.bing.com/th/id/OIP.A5WPGjv8i0Mhu_nGFylRvAHaFj?w=500&h=375&rs=1&pid=ImgDetMain",
+        ], 
+        offerEnding : ""       
+    },
+    {
+        _id : "8efb8e7f5b7a4b9e9b1a9c4b9e5b7a4b",
+        name: "Macbook pro",
+        altNames: ["Apple laptop", "Mac laptop"],
+        labeledPrice: 1000,
+        lastPrice: 900,
+        description: "A laptop made by Apple",
+        image : [
+            "https://th.bing.com/th/id/R.a161652d3bd18bc4854d4653eb607103?rik=0EdopmY4ZNC4hg&pid=ImgRaw&r=0",
+            "https://cdn.shopify.com/s/files/1/0080/5312/9313/products/me866lla-pb-rc-unit_900x.jpg?v=1602775387",
+            "https://th.bing.com/th/id/OIP.iNEnJut7-WP5BQ-dgcYTMAAAAA?w=474&h=474&rs=1&pid=ImgDetMain",
+            "https://th.bing.com/th/id/OIP.A5WPGjv8i0Mhu_nGFylRvAHaFj?w=500&h=375&rs=1&pid=ImgDetMain",
+        ], 
+        offerEnding : ""      
+    },
+    {
+        _id : "8efb8e7f5b7a4b9e9b1a9c4b9e5b7a4b",
+        name: "Macbook pro",
+        altNames: ["Apple laptop", "Mac laptop"],
+        labeledPrice: 1000,
+        lastPrice: 900,
+        description: "A laptop made by Apple",
+        image : [
+            "https://demo.ishithemes.com/opencart/OPC034/image/cache/catalog/productsimage/18-370x370.png",
+            "https://cdn.shopify.com/s/files/1/0080/5312/9313/products/me866lla-pb-rc-unit_900x.jpg?v=1602775387",
+            "https://th.bing.com/th/id/OIP.iNEnJut7-WP5BQ-dgcYTMAAAAA?w=474&h=474&rs=1&pid=ImgDetMain",
+            "https://th.bing.com/th/id/OIP.A5WPGjv8i0Mhu_nGFylRvAHaFj?w=500&h=375&rs=1&pid=ImgDetMain",
+        ],
+        offerEnding : "2024-10-10T00:00:00.000Z",      
+    },
+    {
+        _id : "8efb8e7f5b7a4b9e9b1a9c4b9e5b7a4b",
+        name: "Macbook pro",
+        altNames: ["Apple laptop", "Mac laptop"],
+        labeledPrice: 900,
+        lastPrice: 900,
+        description: "A laptop made by Apple",
+        image : [
+            "https://th.bing.com/th/id/R.a161652d3bd18bc4854d4653eb607103?rik=0EdopmY4ZNC4hg&pid=ImgRaw&r=0",
+            "https://cdn.shopify.com/s/files/1/0080/5312/9313/products/me866lla-pb-rc-unit_900x.jpg?v=1602775387",
+            "https://th.bing.com/th/id/OIP.iNEnJut7-WP5BQ-dgcYTMAAAAA?w=474&h=474&rs=1&pid=ImgDetMain",
+            "https://th.bing.com/th/id/OIP.A5WPGjv8i0Mhu_nGFylRvAHaFj?w=500&h=375&rs=1&pid=ImgDetMain",
+        ],
+        offerEnding : ""
+    },
+]
