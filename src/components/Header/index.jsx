@@ -6,6 +6,7 @@ import "./index.css"
 import logo from "../../assets/images/logo.png"
 import CartIcon from "../CartIcon";
 import UserDropdown from "../UserDropDown";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
     //const [scrollFixed, setScrollFixed] = useState(false);
@@ -52,7 +53,7 @@ export default function Header() {
 
         }} >
           
-          <div className={`h-full w-[75%] bg-blue-900 fixed top-0 z-[100] flex mobile-nav-items ${mobileNavClosing&&"mobile-nav-closed"}`}>
+          <div className={`h-full w-[75%] bg-white fixed top-0 z-[100] flex mobile-nav-items ${mobileNavClosing&&"mobile-nav-closed"}`}>
             <IoMdClose className="absolute right-0 top-5 text-2xl lg:text-4xl text-black hover:text-red-700 mr-4 cursor-pointer mx-5" onClick={()=>{
               setMobileNavClosing(true)
               //run once after one second
@@ -60,8 +61,14 @@ export default function Header() {
                 setMobileNav(false);
                 setMobileNavClosing(false);
               }, 400);
-            
-            }}/>            
+              
+            }}/>
+            <div className="w-full h-full flex flex-col pt-16 items-center">
+              <NavLink to="/" className="text-2xl lg:text-4xl text-black hover:text-primary mx-5 my-2" onClick={()=>{setMobileNav(false)} }>Home</NavLink>
+              <NavLink to="/shop" className="text-2xl lg:text-4xl text-black hover:text-primary mx-5 my-2" onClick={()=>{setMobileNav(false)} }>Shop</NavLink>
+              <NavLink to="/about" className="text-2xl lg:text-4xl text-black hover:text-primary mx-5 my-2" onClick={()=>{setMobileNav(false)} }>About</NavLink>
+              <NavLink to="/contact" className="text-2xl lg:text-4xl text-black hover:text-primary mx-5 my-2" onClick={()=>{setMobileNav(false)} }>Contact</NavLink>
+            </div>           
           </div>
         </div>        
       }     
@@ -82,7 +89,7 @@ export default function Header() {
 
 
         </div>
-        <div className={`hidden  w-full h-[54px] z-[400] lg:flex justify-center bg-primary  items-center ${navFixed?"fixed top-0 animated-nav":""}`}>
+        <div className={`hidden  w-full h-[54px] z-[100] lg:flex justify-center bg-primary  items-center ${navFixed?"fixed top-0 animated-nav":""}`}>
           <div className="w-[1200px] h-full flex  items-center">
             <ul className="flex flex-row justify-center items-center text-white text-sm lg:text-lg">
               <li className="mx-4 cursor-pointer hover:text-dark">Home</li>
