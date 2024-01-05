@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom"
 import { productList } from "../../assets/sampledata";
+import { ZoomTest } from "../../components/TestComponents/ZoomTest";
+
 
 
 
@@ -33,8 +35,8 @@ export default function ProductPage(){
         }
     }, [productLoaded, productData,productReal,productId]);
     return(
-        <div className="w-full h-full bg-black text-white">
-             
-        </div>
+        
+            <ZoomTest/>            
+        
     )
 }
