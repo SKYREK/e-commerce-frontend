@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom"
 import { productList } from "../../assets/sampledata";
-import { ZoomTest } from "../../components/TestComponents/ZoomTest";
+import ImageZoom from "../../components/ImageZoom";
 
 
 
@@ -35,8 +35,18 @@ export default function ProductPage(){
         }
     }, [productLoaded, productData,productReal,productId]);
     return(
-        
-            <ZoomTest/>            
+        <div className="w-full flex justify-center">
+            <div className="w-[75%] hidden lg:flex flex-row">
+                <div className="w-[49%] border">
+                    <ImageZoom imageLink={"https://www.w3schools.com/howto/img_girl.jpg"} scale={4} imageWidth="300px" imageHeight="300px" containerScale={1.5}/>
+                </div>
+                <div className="w-[49%] border">
+                    B
+                </div>
+                
+            </div>
+        </div>
+            
         
     )
 }

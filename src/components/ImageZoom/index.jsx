@@ -62,7 +62,7 @@ const ImageZoom = ({ imageLink , scale , imageWidth , imageHeight , containerSca
         }
     },[resultDiv, imageRef, isMouseIn, xPosition, yPosition, imageLink, scale, containerScale]);
     return(
-            <>
+            <div className='relative'>
                 <div className='relative w-full h-full' onMouseEnter={()=>{                    
                     setIsMouseIn(true);
                 }}
@@ -74,7 +74,7 @@ const ImageZoom = ({ imageLink , scale , imageWidth , imageHeight , containerSca
                         setYPosition(e.nativeEvent.offsetY);
                     }
                 }>
-                    <div className='absolute top-0 left-0 z-[60] w-full h-full cursor-crosshair' >
+                    <div className='absolute top-0 left-0 z-[60] w-full h-full cursor-zoom-in' >
 
                     </div>
                     <div className={`absolute  z-[50]  border border-blue-400  ${!isMouseIn?'hidden':''}`} ref={selector}>
@@ -87,7 +87,7 @@ const ImageZoom = ({ imageLink , scale , imageWidth , imageHeight , containerSca
                 </div>
                 
 
-            </>            
+            </div>            
     )  
 };
 ImageZoom.defaultProps = {
