@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom"
 import { productList } from "../../assets/sampledata";
-import ImageZoom from "../../components/ImageZoom";
-
+import ProductImageSlider from "../../components/ProductImageSlider";
+import Rating from "react-rating";
+import { FaRegStar, FaStar } from "react-icons/fa";
+import VarientSelector from "../../components/VarientSelector";
 
 
 
@@ -22,6 +24,8 @@ export default function ProductPage(){
     const [productLoaded, setProductLoaded] = useState(false);
 
     useEffect(() => {
+        console.log(productId)
+        console.log(productList[productId])
         //get the first product from the the sampe dataset for demonstrate
         setProductData(productList[productId])
         //following codes are for demonstration purpose only. will be removed in after backend integration
@@ -31,17 +35,53 @@ export default function ProductPage(){
 
         if(productData){
             setProductLoaded(true);
+            setProductReal(true);
             console.log(productData)
         }
     }, [productLoaded, productData,productReal,productId]);
     return(
-        <div className="w-full flex justify-center">
-            <div className="w-[75%] hidden lg:flex flex-row">
-                <div className="w-[49%] border">
-                    <ImageZoom imageLink={"https://www.w3schools.com/howto/img_girl.jpg"} scale={4} imageWidth="300px" imageHeight="300px" containerScale={1.5}/>
+        <div className="w-full flex justify-center ">
+            <div className="lg:w-[1200px] hidden lg:flex flex-row">
+                <div className="w-[49%] border ">
+                    {productLoaded&&<ProductImageSlider imgLinks={productData?.image}/>}
                 </div>
-                <div className="w-[49%] border">
-                    B
+                <div className="w-[49%] border flex flex-col items-center p-[50px]">
+                    <span className="w-[90%] text-4xl font-semibold">{productData?.name}
+                    {productData?.altNames.map((name ,index)=>{
+                            return (
+                                <span key={index} className="font-normal">{" | "+name}</span>
+                            )
+                        }
+                    )}</span>
+                    <Rating initialRating={5}
+                    readonly
+                    
+                    className="w-[90%] mt-2  text-[20px]"
+                    emptySymbol={<FaRegStar  className="text-yellow-400"/>}
+                    fullSymbol={<FaStar  className="text-yellow-400"/>}/>
+                    <div className="w-[90%] flex flex-col">
+                        {
+                            productData?.labeledPrice !== productData?.lastPrice ? (
+                                <>
+                                    <span className=" text-3xl font-semibold">LKR {productData?.labeledPrice.toFixed(2)}</span>
+                                    <span className=" text-xl line-through">LKR {productData?.lastPrice.toFixed(2)}</span>
+                                    
+                                </>
+                            ) : <span className="w-[90%]text-3xl">LKR {productData?.labeledPrice.toFixed(2)}</span>
+                        }
+                       
+                    </div>
+                    <span className="w-[90%] mt-2">{productData?.description}</span>
+                    <div className="w-[90%] mt-2 flex flex-col">
+                        {
+                            productData?.variedBy?.map((varient , index) => {
+                                return (
+                                    <VarientSelector product={productData} varient={varient} varientTypePostion={index} key={index} selectVarient={0}/>
+                                )
+                            })
+                        }
+                    </div>
+
                 </div>
                 
             </div>

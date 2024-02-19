@@ -25,8 +25,8 @@ export default function ProductCard(props){
                 {
                     isDiscounted ? (
                         <div className='w-full flex flex-row justify-center items-center'>
-                            <span className="text-[10px] lg:text-[20px] font-semibold text-[#5e5e5e] line-through mx-1">Rs.{product.lastPrice.toFixed(2)}</span>
-                            <span className="text-[10px] lg:text-[20px] font-semibold text-[#2c2c2c] mx-1">Rs.{product.labeledPrice.toFixed(2)}</span>                            
+                            <span className="text-[10px] lg:text-[20px] font-semibold text-[#5e5e5e] line-through mx-1">Rs.{product.labeledPrice.toFixed(2)}</span>
+                            <span className="text-[10px] lg:text-[20px] font-semibold text-[#2c2c2c] mx-1">Rs.{product.lastPrice.toFixed(2)}</span>                            
                         </div>
                     ) : <span className="text-[10px] lg:text-[20px] font-semibold text-[#2c2c2c]">Rs.{product.labeledPrice.toFixed(2)}</span>
                 }
