@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 //must add varientsChanged variable to rerender the component when varients array changed in parent jsx
+//prop validations must be added to the component.
 export default function VarientSelector({product, varientTypePostion , selectVarient , unselectVarient ,selctedVarient }){
     const [selectedVarient, setSelectedVarient] = useState(varientTypePostion);
     return(
