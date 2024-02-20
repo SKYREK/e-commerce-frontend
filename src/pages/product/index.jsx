@@ -23,9 +23,18 @@ export default function ProductPage(){
     //is product loaded
     const [productLoaded, setProductLoaded] = useState(false);
 
+    //three states and one variable are needed for varient management.
+    //selectedVarient
+    //varientsAttributesArray
+    //isVarientUpdated
+    //var isManagingVarient = false/true
+
+    const isManagingVarient = productData?.variedBy?.length > 0 ? true : false;
+    
+    const [selectedVarient, setSelectedVarient] = useState(-1);
+    const [varientsAttributesArray, setVarientAttributesArray] = useState([]);
+    const [isVarientUpdated, setIsVarientUpdated] = useState(false);
     useEffect(() => {
-        console.log(productId)
-        console.log(productList[productId])
         //get the first product from the the sampe dataset for demonstrate
         setProductData(productList[productId])
         //following codes are for demonstration purpose only. will be removed in after backend integration
@@ -36,14 +45,35 @@ export default function ProductPage(){
         if(productData){
             setProductLoaded(true);
             setProductReal(true);
-            console.log(productData)
         }
-    }, [productLoaded, productData,productReal,productId]);
+        if(isManagingVarient){
+            setSelectedVarient(-1);
+            productData?.variants.map((variant,index)=>{
+                if(varientsAttributesArray.toString() == variant.filters.toString()){
+                    setSelectedVarient(index);
+                }
+            })
+            
+                
+            
+            
+        }
+    }, [productLoaded, productData,productReal,productId,isManagingVarient,isVarientUpdated,varientsAttributesArray]);
+    
     return(
         <div className="w-full flex justify-center ">
             <div className="lg:w-[1200px] hidden lg:flex flex-row">
                 <div className="w-[49%] border ">
-                    {productLoaded&&<ProductImageSlider imgLinks={productData?.image}/>}
+                    {(selectedVarient == -1 &&productLoaded) &&
+                        <ProductImageSlider imgLinks={productData?.image}/>
+                    }
+                    {(selectedVarient != -1 &&productLoaded && productData?.variants[selectedVarient].images.length>0) &&
+                        <ProductImageSlider imgLinks={productData?.variants[selectedVarient].images}/>
+                    }
+                    {(selectedVarient != -1 &&productLoaded && productData?.variants[selectedVarient].images.length<=0) &&
+                        <ProductImageSlider imgLinks={productData?.image}/>
+                    }
+
                 </div>
                 <div className="w-[49%] border flex flex-col items-center p-[50px]">
                     <span className="w-[90%] text-4xl font-semibold">{productData?.name}
@@ -76,7 +106,7 @@ export default function ProductPage(){
                         {
                             productData?.variedBy?.map((varient , index) => {
                                 return (
-                                    <VarientSelector product={productData} varient={varient} varientTypePostion={index} key={index} selectVarient={0}/>
+                                    <VarientSelector product={productData} varient={varient} varientTypePostion={index} key={index}  varientsAttributesArray={varientsAttributesArray} setVarientAttributesArray={setVarientAttributesArray} setIsVarientUpdated={setIsVarientUpdated} />
                                 )
                             })
                         }

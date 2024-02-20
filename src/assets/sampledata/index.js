@@ -36,31 +36,31 @@ export const productList = [
                 name: "Size",
                 values : [{
                     name : "13 inch",
-                    icon : "13"
+                    icon : "https://th.bing.com/th/id/OIP.KoKk_vYZW-dFP-YSdRSOZwHaEo?rs=1&pid=ImgDetMain"
                 },
                 {
                     name : "15 inch",
-                    icon : "15"
+                    icon : "https://th.bing.com/th/id/OIP.KoKk_vYZW-dFP-YSdRSOZwHaEo?rs=1&pid=ImgDetMain"
                 },
                 {
                     name : "17 inch",
-                    icon : "17"
+                    icon : "https://th.bing.com/th/id/OIP.KoKk_vYZW-dFP-YSdRSOZwHaEo?rs=1&pid=ImgDetMain"
                 }],
-                iconType : "text",
+                iconType : "image",
             },
             {
                 name: "Storage",
                 values : [{
                     name : "256 GB",
-                    icon : "256"
+                    icon : "256 GB"
                 },
                 {
                     name : "512 GB",
-                    icon : "512"
+                    icon : "512 GB"
                 },
                 {
                     name : "1 TB",
-                    icon : "1TB"
+                    icon : "1 TB"
                 }],
                 iconType : "text",
             }
@@ -73,6 +73,7 @@ export const productList = [
                     "https://cdn.shopify.com/s/files/1/0080/5312/9313/products/me866lla-pb-rc-unit_900x.jpg?v=1602775387",
                     "https://th.bing.com/th/id/OIP.iNEnJut7-WP5BQ-dgcYTMAAAAA?w=474&h=474&rs=1&pid=ImgDetMain",
                     "https://th.bing.com/th/id/OIP.A5WPGjv8i0Mhu_nGFylRvAHaFj?w=500&h=375&rs=1&pid=ImgDetMain",
+                    "https://th.bing.com/th/id/OIP.FZIxLoy1x6g_FK5LqopSOgHaFj?rs=1&pid=ImgDetMain"
                 ],
                 labeledPrice : 1000,
                 lastPrice : 1000,
