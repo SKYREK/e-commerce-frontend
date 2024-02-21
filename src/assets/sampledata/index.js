@@ -14,7 +14,7 @@ export const productList = [
             "https://th.bing.com/th/id/OIP.iNEnJut7-WP5BQ-dgcYTMAAAAA?w=474&h=474&rs=1&pid=ImgDetMain",
             "https://th.bing.com/th/id/OIP.A5WPGjv8i0Mhu_nGFylRvAHaFj?w=500&h=375&rs=1&pid=ImgDetMain",
         ], 
-        offerEnding : "",
+        offerEnding : "2024-10-10T00:00:00.000Z",
         variedBy : [
             {
                 name: "Color",
@@ -132,7 +132,7 @@ export const ratings = [
         username : "user1",
         rating : 5,
         review : "This is a great product",
-        date : "2021-10-10T00:00:00.000Z",
+        date : "2024-02-21T00:00:00.000Z",
         images : [
             "https://th.bing.com/th/id/R.a161652d3bd18bc4854d4653eb607103?rik=0EdopmY4ZNC4hg&pid=ImgRaw&r=0",
             "https://cdn.shopify.com/s/files/1/0080/5312/9313/products/me866lla-pb-rc-unit_900x.jpg?v=1602775387",

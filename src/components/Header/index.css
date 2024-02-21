@@ -44,4 +44,6 @@
 .animated-nav{
     animation-name: movefromabove;
     animation-duration: 1s;
+    position: fixed;
+    top: 0;
 }

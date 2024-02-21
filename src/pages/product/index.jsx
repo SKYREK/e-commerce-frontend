@@ -5,7 +5,9 @@ import ProductImageSlider from "../../components/ProductImageSlider";
 import Rating from "react-rating";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import VarientSelector from "../../components/VarientSelector";
-
+import CountDownV2 from "../../components/CountDownV2";
+import { ratings } from "../../assets/sampledata";
+import CommentCard from "../../components/CommentCard";
 
 
 
@@ -61,8 +63,8 @@ export default function ProductPage(){
     }, [productLoaded, productData,productReal,productId,isManagingVarient,isVarientUpdated,varientsAttributesArray]);
     
     return(
-        <div className="w-full flex justify-center ">
-            <div className="lg:w-[1200px] hidden lg:flex flex-row">
+        <div className="w-full flex items-center flex-col">
+            <div className="lg:w-[1200px] hidden lg:flex justify-between flex-row">
                 <div className="w-[49%] border ">
                     {(selectedVarient == -1 &&productLoaded) &&
                         <ProductImageSlider imgLinks={productData?.image}/>
@@ -86,22 +88,23 @@ export default function ProductPage(){
                     <Rating initialRating={5}
                     readonly
                     
-                    className="w-[90%] mt-2  text-[20px]"
+                    className="w-[90%] mt-4  text-[20px]"
                     emptySymbol={<FaRegStar  className="text-yellow-400"/>}
                     fullSymbol={<FaStar  className="text-yellow-400"/>}/>
-                    <div className="w-[90%] flex flex-col">
+                    <div className="w-[90%] flex flex-col mt-4">
                         {
                             productData?.labeledPrice !== productData?.lastPrice ? (
                                 <>
                                     <span className=" text-3xl font-semibold">LKR {productData?.labeledPrice.toFixed(2)}</span>
                                     <span className=" text-xl line-through">LKR {productData?.lastPrice.toFixed(2)}</span>
+                                    {productData?.offerEnding!==""&&<CountDownV2 timeStamp={productData?.offerEnding}/>}
                                     
                                 </>
-                            ) : <span className="w-[90%]text-3xl">LKR {productData?.labeledPrice.toFixed(2)}</span>
+                            ) : <span className="w-[90%] text-3xl">LKR {productData?.labeledPrice.toFixed(2)}</span>
                         }
-                       
+                                       
                     </div>
-                    <span className="w-[90%] mt-2">{productData?.description}</span>
+                    <span className="w-[90%] mt-4">{productData?.description}</span>
                     <div className="w-[90%] mt-2 flex flex-col">
                         {
                             productData?.variedBy?.map((varient , index) => {
@@ -111,9 +114,24 @@ export default function ProductPage(){
                             })
                         }
                     </div>
+                    <div className="w-[90%] mt-4 flex flex-row">
+                        <button className="w-[50%] bg-primary hover:bg-red-700 text-white p-2 rounded-lg">Add to cart</button>
+                        <button className="w-[50%] bg-primary-dark hover:bg-red-700 text-white p-2 rounded-lg ml-2">Buy now</button>
+                    </div>
 
                 </div>
                 
+            </div>
+            <div className="lg:w-[1200px] hidden lg:flex flex-col ">
+                {
+                    ratings.map((rating,index)=>{
+                        return(
+                            <CommentCard comment={rating} key={index}/>
+                        )
+                        
+                    
+                    })
+                }
             </div>
         </div>
             

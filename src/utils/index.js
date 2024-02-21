@@ -42,4 +42,38 @@ export function getDateDifference(inputDate) {
   
     return differenceJSON;
 }
+export function timeAgo(timestamp) {
+    const now = new Date();
+    const then = new Date(timestamp);
+    const seconds = Math.floor((now - then) / 1000);
+    const intervals = {
+        year: 31536000,
+        month: 2592000,
+        week: 604800,
+        day: 86400
+    };
+
+    if (seconds < 60) {
+        return 'just now';
+    } else if (seconds < 3600) {
+        const minutes = Math.floor(seconds / 60);
+        return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+    } else if (seconds < 86400) {
+        const hours = Math.floor(seconds / 3600);
+        return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+    } else if (seconds < 604800) {
+        const days = Math.floor(seconds / intervals.day);
+        return `${days} day${days > 1 ? 's' : ''} ago`;
+    } else if (seconds < 2592000) {
+        const weeks = Math.floor(seconds / intervals.week);
+        return `${weeks} week${weeks > 1 ? 's' : ''} ago`;
+    } else if (seconds < 31536000) {
+        const months = Math.floor(seconds / intervals.month);
+        return `${months} month${months > 1 ? 's' : ''} ago`;
+    } else {
+        const years = Math.floor(seconds / intervals.year);
+        return `${years} year${years > 1 ? 's' : ''} ago`;
+    }
+}
+
   

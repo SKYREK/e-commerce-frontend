@@ -22,9 +22,9 @@ export default function Header() {
         let st = window.pageYOffset || document.documentElement.scrollTop;
         //set previous scroll position
         console.log(st);
-        if(st>70&&!navFixed){
+        if(st>100&&!navFixed){
           setNavFixed(true);
-        }else if(st<70&&navFixed){
+        }else if(st<100&&navFixed){
           setNavFixed(false);
         }
 
@@ -53,7 +53,7 @@ export default function Header() {
 
         }} >
           
-          <div className={`h-full w-[75%] bg-white fixed top-0 z-[100] flex mobile-nav-items ${mobileNavClosing&&"mobile-nav-closed"}`}>
+          <div className={`h-full w-[75%] bg-white fixed  top-0 z-[100] flex mobile-nav-items ${mobileNavClosing&&"mobile-nav-closed"}`}>
             <IoMdClose className="absolute right-0 top-5 text-2xl lg:text-4xl text-black hover:text-red-700 mr-4 cursor-pointer mx-5" onClick={()=>{
               setMobileNavClosing(true)
               //run once after one second
@@ -73,7 +73,7 @@ export default function Header() {
         </div>        
       }     
       <header className={`header z-[99] flex justify-center items-center flex-col `} >
-        <div className={`w-full lg:w-[1200px] z-[120] h-[60px] lg:h-[120px] flex justify-center  items-center ${mobileNavFixed?"fixed top-0 lg:relative animated-nav  bg-white":"relative"}  `}>
+        <div className={`w-full lg:w-[1200px] z-[120] h-[60px] lg:h-[120px] flex justify-center  items-center ${mobileNavFixed?"fixed lg:z-[-200] top-0 lg:relative animated-nav  bg-white":"relative"}  `}>
           <img src={logo} alt="logo" className=" w-[35%] object-contain absolute" />
           <div className={`w-full relative h-full flex justify-center items-center`}>
             <FiAlignJustify className="absolute lg:hidden left-0 text-2xl lg:text-4xl text-black hover:text-primary ml-4 cursor-pointer mx-5" onClick={()=>setMobileNav(true)}/>
@@ -89,7 +89,7 @@ export default function Header() {
 
 
         </div>
-        <div className={`hidden  w-full h-[54px] z-[100] lg:flex justify-center bg-primary  items-center ${navFixed?"fixed top-0 animated-nav":""}`}>
+        <div className={`hidden  w-full h-[54px] z-[100] lg:flex justify-center bg-primary  items-center ${navFixed?" top-0 animated-nav":""}`}>
           <div className="w-[1200px] h-full flex  items-center">
             <ul className="flex flex-row justify-center items-center text-white text-sm lg:text-lg">
               <li className="mx-4 cursor-pointer hover:text-dark">Home</li>
