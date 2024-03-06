@@ -38,6 +38,7 @@ export default function ProductPage(){
     const [isVarientUpdated, setIsVarientUpdated] = useState(false);
     useEffect(() => {
         //get the first product from the the sampe dataset for demonstrate
+        console.log(varientsAttributesArray)
         setProductData(productList[productId])
         //following codes are for demonstration purpose only. will be removed in after backend integration
         if(!productData){
@@ -51,21 +52,18 @@ export default function ProductPage(){
         if(isManagingVarient){
             setSelectedVarient(-1);
             productData?.variants.map((variant,index)=>{
-                if(varientsAttributesArray.toString() == variant.filters.toString()){
+                if(variant.filters.join("") === varientsAttributesArray.join("")){
                     setSelectedVarient(index);
                 }
-            })
-            
-                
-            
-            
+                })
+            }            
         }
-    }, [productLoaded, productData,productReal,productId,isManagingVarient,isVarientUpdated,varientsAttributesArray]);
+    , [productLoaded, productData,productReal,productId,isManagingVarient,isVarientUpdated,varientsAttributesArray,selectedVarient]);
     
     return(
         <div className="w-full flex items-center flex-col">
-            <div className="lg:w-[1200px] hidden lg:flex justify-between flex-row">
-                <div className="w-[49%] border ">
+            <div className="w-full lg:w-[1200px]  flex justify-between flex-col lg:flex-row">
+                <div className="w-full lg:w-[49%] border ">
                     {(selectedVarient == -1 &&productLoaded) &&
                         <ProductImageSlider imgLinks={productData?.image}/>
                     }
@@ -77,7 +75,7 @@ export default function ProductPage(){
                     }
 
                 </div>
-                <div className="w-[49%] border flex flex-col items-center p-[50px]">
+                <div className="w-full lg:w-[49%] border flex flex-col items-center p-[50px]">
                     <span className="w-[90%] text-4xl font-semibold">{productData?.name}
                     {productData?.altNames.map((name ,index)=>{
                             return (
@@ -122,7 +120,7 @@ export default function ProductPage(){
                 </div>
                 
             </div>
-            <div className="lg:w-[1200px] hidden lg:flex flex-col ">
+            <div className="w-full lg:w-[1200px]  flex flex-col justify-center items-center">
                 {
                     ratings.map((rating,index)=>{
                         return(

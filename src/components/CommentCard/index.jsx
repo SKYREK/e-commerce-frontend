@@ -4,15 +4,15 @@ import Rating from "react-rating";
 import PropTypes from "prop-types";
 import { timeAgo } from "../../utils";
 import { useState } from "react";
-import ProductImageSlider from "../ProductImageSlider";
 import "./index.css"
+import MobileImageSwiper from "../MobileImageSwiper";
 
 export default function CommentCard({ comment }) {
     // Component code here  
     const [fullscreen,setFullscreen] = useState(false)
     const [isMouseInCloseArea, setIsMouseInCloseArea] = useState(false);
     return(
-        <div className="flex flex-col w-full border-b-2 mt-4">
+        <div className="flex flex-col w-[90%] lg:w-full border-b-2 mt-4">
             <div className="flex flex-row w-full relative">
                 <Rating initialRating={comment.rating}
                     readonly
@@ -51,7 +51,7 @@ export default function CommentCard({ comment }) {
                         onMouseLeave={()=>{
                             setIsMouseInCloseArea(true)
                         }}>
-                            <ProductImageSlider imgLinks={comment.images}/>
+                            <MobileImageSwiper imgLinks={comment.images}/>
                         </div>
                     </div>
                 )

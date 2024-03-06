@@ -9,8 +9,8 @@ export const productList = [
         lastPrice: 900,
         description: "A laptop made by Apple",
         image : [
-            "https://th.bing.com/th/id/R.a161652d3bd18bc4854d4653eb607103?rik=0EdopmY4ZNC4hg&pid=ImgRaw&r=0",
-            "https://cdn.shopify.com/s/files/1/0080/5312/9313/products/me866lla-pb-rc-unit_900x.jpg?v=1602775387",
+            "https://demo.ishithemes.com/opencart/OPC034/image/cache/catalog/productsimage/13-1000x1000.png",
+            "https://demo.ishithemes.com/opencart/OPC034/image/cache/catalog/productsimage/2-370x370.png",
             "https://th.bing.com/th/id/OIP.iNEnJut7-WP5BQ-dgcYTMAAAAA?w=474&h=474&rs=1&pid=ImgDetMain",
             "https://th.bing.com/th/id/OIP.A5WPGjv8i0Mhu_nGFylRvAHaFj?w=500&h=375&rs=1&pid=ImgDetMain",
         ], 
@@ -75,8 +75,8 @@ export const productList = [
                     "https://th.bing.com/th/id/OIP.A5WPGjv8i0Mhu_nGFylRvAHaFj?w=500&h=375&rs=1&pid=ImgDetMain",
                     "https://th.bing.com/th/id/OIP.FZIxLoy1x6g_FK5LqopSOgHaFj?rs=1&pid=ImgDetMain"
                 ],
-                labeledPrice : 1000,
-                lastPrice : 1000,
+                labeledPrice : 10000,
+                lastPrice : 9500,
                 stock : 10
             }
         ]
