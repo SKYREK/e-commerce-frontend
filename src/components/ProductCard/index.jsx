@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import "./index.css"
 import CountDown from '../CountDown';
+import { Link } from 'react-router-dom';
 export default function ProductCard(props){
     const { product } = props;
     const [isDiscounted , setIsDiscounted] = useState(false);
@@ -15,7 +16,7 @@ export default function ProductCard(props){
     },[isDiscounted,product.labeledPrice,product.lastPrice])
 
     return(
-        <div className="w-[150px] lg:w-[260px]  aspect-auto lg:aspect-[30/40] my-1 mx-4   cursor-pointer flex flex-col items-center relative product-card">
+        <Link to={"/product?id="+product.id} className="w-[150px] lg:w-[260px]  aspect-auto lg:aspect-[30/40] my-1 mx-4   cursor-pointer flex flex-col items-center relative product-card">
             <div className='w-full aspect-square lg:h-[70%]  bg-[#f9f9f9] relative  product-base-image'>
                 <img src={product.image[0]} alt="" className="w-full h-full object-contain"/>
                 {product.offerEnding!==""&&<CountDown timeStamp={product.offerEnding}/>}
@@ -56,7 +57,7 @@ export default function ProductCard(props){
                 </div>
             </div>
             
-        </div> 
+        </Link> 
     )
 }
 

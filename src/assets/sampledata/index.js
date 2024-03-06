@@ -178,3 +178,14 @@ export const ratings = [
     }
 
 ]
+
+export const boughtProducts = [
+    {
+        productID : "8efb8e7f5b7a4b9e9b1a9c4b9e5b7a4b",
+        quantity : 2,
+        price : 1000,
+        productName : "Macbook pro",
+        varient : ["Red","13 inch","256 GB"],
+                      
+    }
+]
