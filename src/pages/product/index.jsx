@@ -8,6 +8,7 @@ import VarientSelector from "../../components/VarientSelector";
 import CountDownV2 from "../../components/CountDownV2";
 import { ratings } from "../../assets/sampledata";
 import CommentCard from "../../components/CommentCard";
+import { addToCart, emptyCart } from "../../utils/cart";
 
 
 
@@ -39,7 +40,9 @@ export default function ProductPage(){
     useEffect(() => {
         //get the first product from the the sampe dataset for demonstrate
         console.log(varientsAttributesArray)
-        setProductData(productList[productId])
+        //find product by _id
+        const product = productList.find((product)=>product._id === productId);
+        setProductData(product)
         //following codes are for demonstration purpose only. will be removed in after backend integration
         if(!productData){
             setProductReal(false);
@@ -113,8 +116,25 @@ export default function ProductPage(){
                         }
                     </div>
                     <div className="w-[90%] mt-4 flex flex-row">
-                        <button className="w-[50%] bg-primary hover:bg-red-700 text-white p-2 rounded-lg">Add to cart</button>
-                        <button className="w-[50%] bg-primary-dark hover:bg-red-700 text-white p-2 rounded-lg ml-2">Buy now</button>
+                        <button className="w-[50%] bg-primary hover:bg-red-700 text-white p-2 rounded-lg" 
+                        onClick={()=>{
+                            if(productReal && productLoaded){
+                                if(isManagingVarient){
+                                    if(selectedVarient != -1){
+                                        addToCart(productData,selectedVarient,1)
+                                    }else{
+                                        alert("Please select a varient to add to cart")
+                                    }
+                                }else{
+                                    addToCart(productData,-1,1)
+                                }
+                            }else{
+                                alert("Product not found")
+                            }
+                        }}>Add to cart</button>
+                        <button className="w-[50%] bg-primary-dark hover:bg-red-700 text-white p-2 rounded-lg ml-2" onClick={()=>{
+                            emptyCart()
+                        }}>Buy now</button>
                     </div>
 
                 </div>

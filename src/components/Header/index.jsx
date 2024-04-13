@@ -7,13 +7,19 @@ import logo from "../../assets/images/logo.png"
 import CartIcon from "../CartIcon";
 import UserDropdown from "../UserDropDown";
 import { NavLink } from "react-router-dom";
+import { getCart } from "../../utils/cart";
+import CartItem from "../cartItem";
 
 export default function Header() {
+    console.log(getCart())
     //const [scrollFixed, setScrollFixed] = useState(false);
     const [mobileNav, setMobileNav] = useState(false);
     const [navFixed, setNavFixed] = useState(false);
     const [mobileNavFixed, setMobileNavFixed] = useState(false);
     const [mobileNavClosing, setMobileNavClosing] = useState(false);
+    const [cartOpened, setCartOpened] = useState(false);
+    const [cartClosing,setCartClosing]=useState(false);
+    
     useEffect(() => {
       //get current scroll position
       
@@ -42,7 +48,7 @@ export default function Header() {
     <>
       {
         mobileNav&&
-        <div className={`h-[100vh]  overflow-x-hidden lg:hidden mobile-nav fixed   z-[190] w-full  top-0 ${!mobileNavClosing&&"bg-[#00000066]"} `} onClick={()=>{
+        <div className={`h-[100vh]   lg:hidden mobile-nav fixed   z-[190] w-full  top-0 ${!mobileNavClosing&&"bg-[#00000066]"} `} onClick={()=>{
           
           setMobileNavClosing(true)
           //run once after one second
@@ -53,7 +59,7 @@ export default function Header() {
 
         }} >
           
-          <div className={`h-full w-[75%] bg-white fixed  top-0 z-[100] flex mobile-nav-items ${mobileNavClosing&&"mobile-nav-closed"}`}>
+          <div className={`h-full w-[75%] bg-white fixed overflow-hidden  top-0 z-[100] flex mobile-nav-items ${mobileNavClosing&&"mobile-nav-closed"}`}>
             <IoMdClose className="absolute right-0 top-5 text-2xl lg:text-4xl text-black hover:text-red-700 mr-4 cursor-pointer mx-5" onClick={()=>{
               setMobileNavClosing(true)
               //run once after one second
@@ -71,7 +77,42 @@ export default function Header() {
             </div>           
           </div>
         </div>        
-      }     
+      }   
+      {
+        cartOpened&&
+        <>
+        <div className={`h-[100vh]  overflow-x-hidden  mobile-nav fixed   z-[190] w-full  top-0 ${!cartClosing&&"bg-[#00000066]"} `} onClick={()=>{
+          
+          setCartClosing(true)
+          //run once after one second
+          setTimeout(() => {
+            setCartOpened(false);
+            setCartClosing(false);
+          }, 400);
+
+        }} >
+          
+          <div className={`h-full w-[75%] lg:w-[400px] bg-white fixed overflow-hidden   top-0 right-0 z-[100] flex mobile-nav-items ${cartClosing&&"mobile-nav-closed"}`}>
+            <IoMdClose className="absolute right-0 top-5 text-2xl lg:text-4xl text-black hover:text-red-700 mr-4 cursor-pointer mx-5" onClick={()=>{
+              setCartClosing(true)
+              //run once after one second
+              setTimeout(() => {
+                setCartOpened(false);
+                setCartClosing(false);
+              }, 400);
+              
+            }}/>
+            <div className="w-full h-full flex flex-col pt-16 items-center">
+             {
+              getCart().map((item,index)=>{
+                return (<CartItem key={index} product={item.product} varient={item.varient} quantity={item.quantity}/>)
+              })
+             }
+            </div>           
+          </div>
+        </div>
+        </>
+      }  
       <header className={`header z-[99] flex justify-center items-center flex-col `} >
         <div className={`w-full lg:w-[1200px] z-[120] h-[60px] lg:h-[120px] flex justify-center  items-center ${mobileNavFixed?"fixed lg:z-[-200] top-0 lg:relative animated-nav  bg-white":"relative"}  `}>
           <img src={logo} alt="logo" className=" w-[35%] object-contain absolute" />
@@ -83,7 +124,9 @@ export default function Header() {
                 <option value="en">EN</option>
                 <option value="ar">AR</option>
               </select>
-              <CartIcon count={12}/>
+              <CartIcon onClick={
+                ()=>setCartOpened(true)
+              } count={12}/>
             </div>        
           </div>
 

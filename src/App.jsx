@@ -3,6 +3,7 @@ import './App.css'
 import Header from './components/Header'
 import HomePage from './pages/home'
 import ProductPage from './pages/product'
+import Cart from './pages/Cart'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/product/*" element={<ProductPage />} />
+              <Route path="/cart" element={<Cart/>} />
             </Routes>
             
           </>} />

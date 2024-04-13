@@ -4,6 +4,7 @@
     background-size: cover;
     background-position: center;;
 }
+
 @keyframes expandhorizontal {
     0% {
         width: 0;
@@ -12,8 +13,22 @@
         width: 75%;
     }
 }
+@keyframes expandHorizontalDesktop{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 400px;
+    }
+}
+
 .mobile-nav-items{
     animation-name: expandhorizontal;
+    @media screen and (min-width: 768px){
+        animation-name: expandHorizontalDesktop;
+        animation-duration: 0.5s;
+        
+    }    
     animation-duration: 0.5s;
 }
 
@@ -27,10 +42,27 @@
         width: 0%;
     }
 }
+@keyframes retracthorizontalDesktop{
+    0%{
+        width: 400px;
+    }
+    100%{
+        width: 0;
+    }
+    
+}
+
 .mobile-nav-closed{
     animation-name: retracthorizontal;
+    @media screen and (min-width: 768px){
+        animation-name: retracthorizontalDesktop;
+    }
+    
     animation-duration: 0.5s;
 }
+
+
+
 
 @keyframes movefromabove {
     0% {
@@ -47,3 +79,5 @@
     position: fixed;
     top: 0;
 }
+
+

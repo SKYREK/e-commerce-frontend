@@ -82,7 +82,7 @@ export const productList = [
         ]
     },
     {
-        _id : "8efb8e7f5b7a4b9e9b1a9c4b9e5b7a4b",
+        _id : "8efb8e7f5b7a4b9e9b1a9c4b9e5b7a4c",
         name: "Macbook pro",
         altNames: ["Apple laptop", "Mac laptop"],
         labeledPrice: 1000,
@@ -97,7 +97,7 @@ export const productList = [
         offerEnding : ""      
     },
     {
-        _id : "8efb8e7f5b7a4b9e9b1a9c4b9e5b7a4b",
+        _id : "8efb8e7f5b7a4b9e9b1a9c4b9e5b7a4f",
         name: "Macbook pro",
         altNames: ["Apple laptop", "Mac laptop"],
         labeledPrice: 1000,
@@ -112,7 +112,7 @@ export const productList = [
         offerEnding : "2024-10-10T00:00:00.000Z",      
     },
     {
-        _id : "8efb8e7f5b7a4b9e9b1a9c4b9e5b7a4b",
+        _id : "8efb8e7f5b7a4b9e9b1a9c4b9e5b7a4g",
         name: "Macbook pro",
         altNames: ["Apple laptop", "Mac laptop"],
         labeledPrice: 900,
@@ -179,13 +179,13 @@ export const ratings = [
 
 ]
 
-export const boughtProducts = [
-    {
-        productID : "8efb8e7f5b7a4b9e9b1a9c4b9e5b7a4b",
-        quantity : 2,
-        price : 1000,
-        productName : "Macbook pro",
-        varient : ["Red","13 inch","256 GB"],
-                      
-    }
-]
+// export const boughtProducts = [
+//     {
+//         productID : "8efb8e7f5b7a4b9e9b1a9c4b9e5b7a4b",
+//         quantity : 2,
+//         price : 1000,
+//         productName : "Macbook pro",
+//         varient : ["Red","13 inch","256 GB"],
+
+//     }
+// ]
