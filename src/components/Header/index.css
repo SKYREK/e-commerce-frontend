@@ -56,9 +56,10 @@
     animation-name: retracthorizontal;
     @media screen and (min-width: 768px){
         animation-name: retracthorizontalDesktop;
-    }
-    
+        animation-duration: 0.5s;
+    }  
     animation-duration: 0.5s;
+    
 }
 
 

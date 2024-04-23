@@ -1,0 +1,33 @@
+@keyframes retracthorizontal {
+    0% {
+        max-width: 75%;
+    }
+    100% {
+        max-width: 0%;
+    }
+}
+@keyframes retracthorizontalDesktop{
+    0%{
+        max-width: 400px;
+    }
+    100%{
+        max-width: 0;
+    }
+    
+}
+.cart-slider-closed{
+    width: 0%;
+    @media screen and (min-width: 768px){
+        animation-name: retracthorizontalDesktop;
+        animation-duration: 0.5s;
+        max-width: 0;
+    }  
+    animation-name: retracthorizontal;    
+    animation-duration: 0.5s;  
+    max-width: 0; 
+    
+}
+.cart-slider-background-close{
+    background-color: rgba(0, 0, 0, 0);
+    animation: retracthorizontal 1s;
+}
