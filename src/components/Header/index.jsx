@@ -14,9 +14,9 @@ export default function Header() {
     //const [scrollFixed, setScrollFixed] = useState(false);
     const [navFixed, setNavFixed] = useState(false);
     const [mobileNavFixed, setMobileNavFixed] = useState(false);
-    const [mobileNavClosing, setMobileNavClosing] = useState(false);
-    const [cartOpened, setCartOpened] = useState(false);
-    const [cartClosing,setCartClosing] = useState(false);
+    const [mobileNavClosing, setMobileNavClosing] = useState(true);
+    const [cartClosing,setCartClosing] = useState(true);
+    const [firstLoad , setFirstLoad] = useState(true);
     
     useEffect(() => {
       //get current scroll position
@@ -44,10 +44,12 @@ export default function Header() {
     , [navFixed,mobileNavFixed])
     return (
     <>
-      {
-        <MobileNavSlider setMobileNavClosing={setMobileNavClosing} mobileNavClosing={mobileNavClosing}/>               
-      }         
-      <CartSlider closeCart={()=>{setCartOpened(false)}} cartClosing={cartClosing} cartOpened={cartOpened} setCartClosing={setCartClosing}/>
+      {!firstLoad&&
+        <>
+        <MobileNavSlider setMobileNavClosing={setMobileNavClosing} mobileNavClosing={mobileNavClosing}/>            
+        <CartSlider  cartClosing={cartClosing} setCartClosing={setCartClosing}/>
+        </>
+      }
       <header className={`header z-[99] flex justify-center items-center flex-col `} >
         <div className={`w-full lg:w-[1200px] z-[120] h-[60px] lg:h-[120px] flex justify-center  items-center ${mobileNavFixed?"fixed lg:z-[-200] top-0 lg:relative animated-nav  bg-white":"relative"}  `}>
           <img src={logo} alt="logo" className=" w-[35%] object-contain absolute" />
@@ -61,8 +63,9 @@ export default function Header() {
               </select>
               <CartIcon onClick={
                 ()=>
-                {
+                {                  
                   setCartClosing(false)
+                  setFirstLoad(false)
                 }
               } count={12}/>
             </div>        

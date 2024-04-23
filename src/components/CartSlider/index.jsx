@@ -19,7 +19,42 @@ export default function CartSlider({cartClosing ,setCartClosing}){
                 setCartClosing(true)
                 
               }}/>
-              <div className="w-full h-full flex flex-col pt-16 items-center">
+              <div className="cart-item-holder">
+              {
+                getCart().map((item,index)=>{
+                  return (<CartItem key={index} product={item.product} varient={item.varient} quantity={item.quantity}/>)
+                })
+              }
+              {
+                getCart().map((item,index)=>{
+                  return (<CartItem key={index} product={item.product} varient={item.varient} quantity={item.quantity}/>)
+                })
+              }
+              {
+                getCart().map((item,index)=>{
+                  return (<CartItem key={index} product={item.product} varient={item.varient} quantity={item.quantity}/>)
+                })
+              }
+              {
+                getCart().map((item,index)=>{
+                  return (<CartItem key={index} product={item.product} varient={item.varient} quantity={item.quantity}/>)
+                })
+              }
+              {
+                getCart().map((item,index)=>{
+                  return (<CartItem key={index} product={item.product} varient={item.varient} quantity={item.quantity}/>)
+                })
+              }
+              {
+                getCart().map((item,index)=>{
+                  return (<CartItem key={index} product={item.product} varient={item.varient} quantity={item.quantity}/>)
+                })
+              }
+              {
+                getCart().map((item,index)=>{
+                  return (<CartItem key={index} product={item.product} varient={item.varient} quantity={item.quantity}/>)
+                })
+              }
               {
                 getCart().map((item,index)=>{
                   return (<CartItem key={index} product={item.product} varient={item.varient} quantity={item.quantity}/>)
