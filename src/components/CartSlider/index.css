@@ -54,6 +54,9 @@ w-full h-full flex flex-col pt-16 items-center bg-red-900
 .cart-item-holder::-webkit-scrollbar-thumb {
     background: #888;
 }
+.cart-item-holder > div:nth-child(odd){
+    background-color: #f2f2f2;
+}
 
  
 

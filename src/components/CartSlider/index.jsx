@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import CartItem from '../cartItem';
-import { getCart } from '../../utils/cart';
+import { getCart, getTotalOfCart } from '../../utils/cart';
 import { IoMdClose } from 'react-icons/io';
 import "./index.css"
 export default function CartSlider({cartClosing ,setCartClosing}){
@@ -11,7 +11,7 @@ export default function CartSlider({cartClosing ,setCartClosing}){
 
           }} >
             
-            <div className={`h-full w-[75%] lg:w-[400px] bg-white fixed overflow-hidden   top-0 right-0 z-[191] flex mobile-nav-items ${cartClosing?"cart-slider-closed":""}`}
+            <div className={`h-full w-[75%] lg:w-[400px] bg-white fixed overflow-hidden   top-0 right-0 z-[191] flex mobile-nav-items flex-col ${cartClosing?"cart-slider-closed":""}`}
             onClick={()=>{
               console.log("clicked")
             }}>
@@ -60,9 +60,15 @@ export default function CartSlider({cartClosing ,setCartClosing}){
                   return (<CartItem key={index} product={item.product} varient={item.varient} quantity={item.quantity}/>)
                 })
               }
-              </div>           
+              </div>
+                <div className="flex justify-between items-center px-4 py-2">
+                    <h3 className="text-2xl">Total</h3>
+                    <h3 className="text-2xl">LKR. {getTotalOfCart().toFixed(2)}</h3>    
+                </div>
             </div>
-          </div>
+           
+        </div>
+        
     )
 }
 CartSlider.propTypes = {

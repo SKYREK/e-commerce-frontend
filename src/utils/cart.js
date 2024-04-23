@@ -36,3 +36,11 @@ export function validateCart(){
 export function expandCart(){
     console.log("cart expansion is not loaded")
 }
+//varient!=-1?(product.variants[varient].lastPrice*quantity).toFixed(2):(product.lastPrice*quantity).toFixed(2)
+export function getTotalOfCart(){
+    let total = 0;
+    getCart().forEach((item)=>{
+        total += item.varient !== -1?(item.product.variants[item.varient].lastPrice*item.quantity):(item.product.lastPrice*item.quantity);
+    })
+    return total;
+}

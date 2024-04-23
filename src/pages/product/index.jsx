@@ -145,9 +145,7 @@ export default function ProductPage(){
                     ratings.map((rating,index)=>{
                         return(
                             <CommentCard comment={rating} key={index}/>
-                        )
-                        
-                    
+                        )            
                     })
                 }
             </div>
