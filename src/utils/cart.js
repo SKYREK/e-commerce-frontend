@@ -33,9 +33,7 @@ export function emptyCart(){
 export function validateCart(){
     console.log("cart validation is not implemented yet.")
 }
-export function expandCart(){
-    console.log("cart expansion is not loaded")
-}
+
 //varient!=-1?(product.variants[varient].lastPrice*quantity).toFixed(2):(product.lastPrice*quantity).toFixed(2)
 export function getTotalOfCart(){
     let total = 0;
