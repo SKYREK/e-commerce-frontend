@@ -9,14 +9,18 @@ import CountDownV2 from "../../components/CountDownV2";
 import { ratings } from "../../assets/sampledata";
 import CommentCard from "../../components/CommentCard";
 import { addToCart, emptyCart } from "../../utils/cart";
+//import { useCartSlider } from "../../hooks/useCartOpenClose";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../store/cart-slice";
 
 
 
 export default function ProductPage(){
+    //const {cartClosing,openCart} = useCartSlider();
     const location = useLocation();
     const params = new URLSearchParams(location.search);
     const productId = params.get("id")
-
+    const dispatch = useDispatch();
     //boolean variable to set if a product is not found
     const [productReal, setProductReal] = useState(true);
 
@@ -122,11 +126,19 @@ export default function ProductPage(){
                                 if(isManagingVarient){
                                     if(selectedVarient != -1){
                                         addToCart(productData,selectedVarient,1)
+                                        dispatch(
+                                            cartActions.openCart()
+                                        )
                                     }else{
                                         alert("Please select a varient to add to cart")
                                     }
                                 }else{
                                     addToCart(productData,-1,1)
+                                    //openCart()
+                                    dispatch(
+                                        cartActions.openCart()
+                                    )
+                                    
                                 }
                             }else{
                                 alert("Product not found")

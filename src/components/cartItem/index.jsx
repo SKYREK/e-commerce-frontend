@@ -14,7 +14,9 @@ export default function CartItem(props) {
                     <p className="text-sm text-gray-500 " style={{wordWrap:"break-word"}}>{varient!=-1&&varientName}</p>
                     <p className="text-gray-500 text-sm right-4">LKR.{" "+varient!=-1?(product.variants[varient].lastPrice*quantity).toFixed(2):(product.lastPrice*quantity).toFixed(2)}</p>
                 </div>
-                <FaTrashAlt className="text-red-500 text-sm absolute left-[350px]"/>                
+                <FaTrashAlt onClick={()=>{
+                    console.log(props.key)
+                }} className="text-slate-400 cursor-pointer hover:text-red-500 text-sm absolute left-[350px]"/>                
             </div>
             
             
@@ -24,5 +26,6 @@ export default function CartItem(props) {
 CartItem.propTypes = {
     product : PropTypes.object,
     varient : PropTypes.number,
-    quantity : PropTypes.number
+    quantity : PropTypes.number,
+    key : PropTypes.number
 }

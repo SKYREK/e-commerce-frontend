@@ -3,10 +3,11 @@ import { useEffect, useState } from 'react';
 import "./index.css"
 import CountDown from '../CountDown';
 import { Link } from 'react-router-dom';
+//import { useDispatch } from 'react-redux';
 export default function ProductCard(props){
     const { product } = props;
     const [isDiscounted , setIsDiscounted] = useState(false);
-
+    //const dispatch = useDispatch();
     useEffect(()=>{
         if(product.labeledPrice === product.lastPrice && isDiscounted==true){
             setIsDiscounted(false);

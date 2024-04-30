@@ -44,3 +44,15 @@ export function getTotalOfCart(){
     })
     return total;
 }
+//remove item from cart
+export function removeFromCart(index){
+    //get the cart from localstorage
+    const cartString = localStorage.getItem('cart');
+    let cart = [];
+    if(cartString)
+        cart = JSON.parse(cartString);
+    //remove the item from the cart
+    cart.splice(index,1);
+    //save the cart to localstorage
+    localStorage.setItem('cart',JSON.stringify(cart));
+}

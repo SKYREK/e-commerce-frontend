@@ -8,6 +8,9 @@ import UserDropdown from "../UserDropDown";
 import { getCart } from "../../utils/cart";
 import CartSlider from "../CartSlider";
 import MobileNavSlider from "../MobileNavSlider";
+//import { useCartSlider } from "../../hooks/useCartOpenClose";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../store/cart-slice";
 
 export default function Header() {
     console.log(getCart())
@@ -15,9 +18,10 @@ export default function Header() {
     const [navFixed, setNavFixed] = useState(false);
     const [mobileNavFixed, setMobileNavFixed] = useState(false);
     const [mobileNavClosing, setMobileNavClosing] = useState(true);
-    const [cartClosing,setCartClosing] = useState(true);
+    //const [cartClosing,setCartClosing] = useState(true);
     const [firstLoad , setFirstLoad] = useState(true);
-    
+    //const {  } = useCartSlider()
+    const dispatch = useDispatch();
     useEffect(() => {
       //get current scroll position
       
@@ -41,13 +45,13 @@ export default function Header() {
       }, false);
       console.log(navFixed)
     }
-    , [navFixed,mobileNavFixed])
+    , [navFixed,mobileNavFixed ])
     return (
     <>
       {!firstLoad&&
         <>
         <MobileNavSlider setMobileNavClosing={setMobileNavClosing} mobileNavClosing={mobileNavClosing}/>            
-        <CartSlider  cartClosing={cartClosing} setCartClosing={setCartClosing}/>
+        <CartSlider />
         </>
       }
       <header className={`header z-[99] flex justify-center items-center flex-col `} >
@@ -64,7 +68,9 @@ export default function Header() {
               <CartIcon onClick={
                 ()=>
                 {                  
-                  setCartClosing(false)
+                  dispatch(
+                    cartActions.openCart()
+                  )
                   setFirstLoad(false)
                 }
               } count={12}/>
