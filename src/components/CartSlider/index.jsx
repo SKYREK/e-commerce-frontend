@@ -1,15 +1,17 @@
 //import PropTypes from 'prop-types';
-import CartItem from '../CartItem';
+import CartItem from '../cartItem';
 import { emptyCart, getCart, getTotalOfCart } from '../../utils/cart';
 import { IoMdClose } from 'react-icons/io';
 import "./index.css"
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../../store/cart-slice';
+import { useNavigate } from 'react-router-dom';
 export default function CartSlider(){
     const[mouseInCloseArea ,setMouseInCloseArea] = useState(false);
     const cartOpened = useSelector(state=>state.cart.cartOpened);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     return(
         <div className={`h-[100vh]  overflow-x-hidden  mobile-nav fixed   z-[190]   top-0 right-0  ${!cartOpened?"cart-slider-background-close":"w-full bg-[#00000066]"}`} onClick={()=>{
           if(mouseInCloseArea)
@@ -58,7 +60,11 @@ export default function CartSlider(){
                     <h3 className="text-md ">LKR. {getTotalOfCart().toFixed(2)}</h3>  
                   </div>  
                   <div className='w-full flex justify-center flex-row'>
-                    <button className='text-[14px] z-[100] hover:bg-red-900 product-add-to-cart-button bg-primary text-white p-[10px] w-[150px]  lg:text-[14px] mx-4' >Checkout</button>
+                    <button className='text-[14px] z-[100] hover:bg-red-900 product-add-to-cart-button bg-primary text-white p-[10px] w-[150px]  lg:text-[14px] mx-4' onClick={
+                      ()=>{
+                        navigate('/cart')
+                      }
+                    } >Checkout</button>
                     <button className='text-[14px] z-[100] hover:bg-red-900 product-add-to-cart-button bg-primary text-white p-[10px] w-[150px]  lg:text-[14px] mx-4' onClick={()=>{
                       emptyCart()
                     }}>Empty cart</button>
